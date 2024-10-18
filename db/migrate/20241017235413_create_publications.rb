@@ -4,6 +4,7 @@ class CreatePublications < ActiveRecord::Migration[7.2]
       t.string :photo
       t.string :title
       t.string :body
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -1,0 +1,23 @@
+<nav class="navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">Mi Aplicación</a>
+    <ul class="navbar-nav me-auto"> <!-- Clase 'me-auto' para alinear los elementos a la izquierda -->
+      <li class="nav-item">
+        <%= link_to 'Inicio', root_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Publicaciones', publications_path, class: 'nav-link' %>
+      </li>
+    </ul>
+
+    <% if user_signed_in? %>
+      <div class="navbar-text"> <!-- Para mostrar el nombre del usuario -->
+        Bienvenido, <%= current_user.email %>
+      </div>
+    <% else %>
+      <div class="navbar-text"> <!-- Mensaje para registrarse -->
+        No tienes una cuenta? <%= link_to 'Regístrate aquí', new_user_registration_path, class: 'nav-link' %>
+      </div>
+    <% end %>
+  </div>
+</nav>

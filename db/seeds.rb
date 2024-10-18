@@ -10,40 +10,46 @@
 
 
 # Limpia la base de datos antes de poblarla
-User.destroy_all
-Post.destroy_all
-Reaction.destroy_all
-Comment.destroy_all
-
 # Crear usuarios
+
+require 'faker'
 i = 0
 until User.count == 20 do
-  User.create(email: "test#{i}@gmail.com", password: "asdasdasd", password_confirmation: "asdasdasd", photo: Faker::Avatar.image, name: Faker::Name.name)
+  User.create(
+    email: "test#{i}@gmail.com", 
+    password: "asdasdasd", 
+    password_confirmation: "asdasdasd"
+  )
   i += 1
 end
 
 # Crear publicaciones
 users = User.all
-until Post.count == 100 do
-  Post.create(title: Faker::Book.title, content: Faker::Lorem.paragraph_by_chars(number: 200, supplemental: false), user: users.sample)
+until Publication.count == 100 do
+  Publication.create(
+    title: Faker::Book.title,
+    body: Faker::Lorem.paragraph_by_chars(number: 200, supplemental: false),
+    photo: Faker::Avatar.image,
+    user: users.sample
+  )
 end
 
 # Crear comentarios
-posts = Post.all
+publications = Publication.all
 until Comment.count == 1000 do
-  Comment.create(content: Faker::Lorem.paragraph_by_chars(number: 200, supplemental: false), post: posts.sample, user: users.sample, anonymous: [true, false].sample)
+  Comment.create(
+    content: Faker::Lorem.paragraph_by_chars(number: 200, supplemental: false),
+    publication: publications.sample,
+    user: users.sample
+  )
 end
 
-# Crear reacciones
-r_type = %w[article comment]
+# Crear reacciones (simplificadas)
 comments = Comment.all
-kinds = Reaction::Kinds
-
 until Reaction.count == 1000 do
-  rel_type = r_type.sample
-  if rel_type == "article"
-    Reaction.create(post: posts.sample, user: users.sample, kind: kinds.sample, reaction_type: rel_type, comment: nil)
-  else
-    Reaction.create(comment: comments.sample, user: users.sample, kind: kinds.sample, reaction_type: rel_type, post: nil)
-  end
+  Reaction.create(
+    like: [true, false].sample.to_s, 
+    dislike: [true, false].sample.to_s
+  )
 end
+
