@@ -8,8 +8,16 @@
 
 <br>
 
+
 <div class="links">
   <%= link_to "Show this publication", @publication %> |
   <%= link_to "Back to publications", publications_path %>
 </div>
 </div>
+
+<div class="text-center mt-3">
+  <%= link_to "Show this publication", @publication, class: "btn btn-primary" %>
+  <%= link_to "Back to publications", publications_path, class: "btn btn-secondary" %>
+</div>
+
+

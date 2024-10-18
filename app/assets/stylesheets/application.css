@@ -59,6 +59,7 @@
     margin: 20px auto; /* Ajusta el margen según lo necesites */
   }
   
+
   .signup-container {
     max-width: 400px; /* Ajusta el ancho máximo según sea necesario */
     margin: 0 auto; /* Centra horizontalmente */
@@ -75,3 +76,16 @@
   .actions {
     text-align: center; /* Centra el botón de envío */
   }
+.comentarioEnShow{
+  display: flex;
+  flex-flow: column nowrap;
+  padding : 10px;
+  border: 2px solid gray;
+  border-radius: 5px;
+  margin: 5px 0;
+  background-color: #00000016;
+  >li::marker{
+    content: '';
+  }
+}
+
