@@ -13,3 +13,40 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+ .custom-navbar {
+    background-color: #EBC55E; /* Color personalizado para el navbar */
+  }
+  
+  .custom-dropdown-toggle {
+    background-color: #D3B84D; /* Tono más oscuro para el botón del usuario */
+    color: white; /* Color del texto en el botón */
+  }
+  
+  .custom-dropdown-toggle:hover {
+    background-color: #C2A34A; /* Color al pasar el ratón por encima */
+  }
+  
+  .navbar .nav-link {
+    color: #333; /* Color de los enlaces del navbar */
+  }
+  
+  .navbar .nav-link:hover {
+    color: #000; /* Color al pasar el ratón por encima de los enlaces */
+  }
+  
+
+  .btn {
+    margin-left: 15px; /* Espacio a la izquierda del botón, si es necesario */
+  }
+  
+
+  #publications {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto; /* Ajusta el margen según lo necesites */
+  }
+  

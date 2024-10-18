@@ -2,15 +2,17 @@
 
 <% content_for :title, "Publications" %>
 
-<h1>Publications</h1>
+<div class="d-flex justify-content-center align-items-center my-4"> <!-- Contenedor flex centrado -->
+  <h1 class="mb-0 me-3">Publications</h1> <!-- Margen a la derecha del h1 -->
+  <%= link_to "Nueva Publicación", new_publication_path, class: "btn btn-primary" %> <!-- Botón de Bootstrap -->
+</div>
 
-<div id="publications">
+<div id="publications" class="text-center"> <!-- Centro las publicaciones -->
   <% @publications.each do |publication| %>
-    <%= render publication %>
-    <p>
-      <%= link_to "Show this publication", publication %>
-    </p>
+    <div class="publication-card">
+      <%= render publication %>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New publication", new_publication_path %>
+

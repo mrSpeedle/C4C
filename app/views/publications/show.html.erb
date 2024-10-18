@@ -1,11 +1,26 @@
 <p style="color: green"><%= notice %></p>
 <%= render @publication %>
-<%= render 'comments/form' %>
-<div>
-  <%= link_to "Edit this publication", edit_publication_path(@publication) %> <br>
-  <%= link_to "Back to publications", publications_path %>
-  <%= button_to "Destroy this publication", @publication, method: :delete %>
-  <% Publication::Kinds.each do |kind| %>
-    <%= button_to "#{Publication::KindsSpanish[kind]}", new_user_reaction_path(publication_id: @publication.id, reaction_type: "publication", kind: kind), method: :post %>
-  <% end %>
+<div class="d-flex justify-content-center mt-3">
+  <div class="me-3">
+    <%= link_to "Edit this publication", edit_publication_path(@publication), class: "btn btn-secondary me-2" %>
+    <%= link_to "Back to publications", publications_path, class: "btn btn-secondary me-2" %>
+    <%= button_to "Destroy this publication", @publication, method: :delete, class: "btn btn-danger me-2" %>
+  </div>
+  <div>
+    <% Reaction.kinds.each do |kind| %>
+      <%= button_to "#{kind.capitalize}", new_user_reaction_path(publication_id: @publication.id, reaction_type: "publication", kind: kind), method: :post, class: "btn btn-outline-primary me-2" %>
+    <% end %>
+  </div>
 </div>
+
+
+<h6>Comentarios:</h6>
+<%= render 'comments/form', comment: @comment %>
+
+<ul>
+  <% @comments.each do |comment| %>
+    <li><strong><%= comment.user.name %>:</strong> <%= comment.content %></li>
+  <% end %>
+</ul>
+
+

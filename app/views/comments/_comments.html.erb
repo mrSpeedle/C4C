@@ -1,0 +1,9 @@
+<h6>Comentarios:</h6>
+<ul>
+  <% publication.comments.each do |comment| %>
+    <li><strong><%= comment.user.name %>:</strong> <%= comment.content %></li>
+  <% end %>
+</ul>
+
+<!-- Incluir el formulario de comentarios -->
+<%= render 'comments/form', publication: publication %>

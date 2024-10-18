@@ -1,17 +1,24 @@
-<div id="<%= dom_id publication %>">
-  <p>
-    <strong>Photo:</strong>
-    <%= publication.photo %>
-  </p>
-
-  <p>
-    <strong>Title:</strong>
-    <%= publication.title %>
-  </p>
-
-  <p>
-    <strong>Body:</strong>
-    <%= publication.body %>
-  </p>
-
+<div class="container-fluid d-flex justify-content-center">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="<%= dom_id publication %>" class="card mb-4 d-flex flex-row">
+        <div class="card-body d-flex flex-column">
+          <div class="d-flex">
+            <div class="me-3">
+              <%= image_tag publication.photo, class: 'img-fluid' %>
+            </div>
+            <div>
+              <h5 class="card-title"><%= publication.title %></h5>
+              <p class="card-text"><%= publication.body %></p>
+              <div class="d-flex justify-content-between mt-3 pt-4">
+                <p>Likes: <%= publication.likes_count %></p>
+                <p>Dislikes: <%= publication.dislikes_count %></p>
+              </div>
+            </div>
+          </div>
+          <%= link_to "Show this publication", publication_path(publication), class: "btn btn-primary mt-3" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   post '/new_user_reaction', to: 'reactions#new_user_reaction', as: 'new_user_reaction'
 
   resources :comments, only: [:create]
-  resources :publications
+  resources :publications do
+    resources :comments, only: [:create] # Permite crear comentarios para una publicación específica
+  end
 
 
   devise_for :users
