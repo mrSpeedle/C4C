@@ -28,9 +28,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_18_173648) do
     t.string "photo"
     t.string "title"
     t.string "body"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_publications_on_user_id"
   end
 
