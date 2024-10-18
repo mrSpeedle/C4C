@@ -11,7 +11,7 @@ class PublicationsController < ApplicationController
   def show
     @publication = Publication.find(params[:id])
     @comment = Comment.new
-    @comments = @publication.comments.order(id: :des)
+    @comments = @publication.comments.order(id: :desc)
   end
 
 
