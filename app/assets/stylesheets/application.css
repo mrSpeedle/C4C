@@ -13,7 +13,16 @@
  *= require_tree .
  *= require_self
  */
+ .edit-publication-container {
+  max-width: 600px; /* Ajusta el ancho máximo según sea necesario */
+  margin: 0 auto; /* Centra horizontalmente */
+  padding: 20px; /* Espaciado interno */
+  text-align: center; /* Centra el texto dentro del contenedor */
+}
 
+.links {
+  margin-top: 20px; /* Espaciado superior para separar los enlaces */
+}
 
 
  .custom-navbar {
@@ -50,3 +59,19 @@
     margin: 20px auto; /* Ajusta el margen según lo necesites */
   }
   
+  .signup-container {
+    max-width: 400px; /* Ajusta el ancho máximo según sea necesario */
+    margin: 0 auto; /* Centra horizontalmente */
+    padding: 20px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde opcional */
+    border-radius: 5px; /* Bordes redondeados opcionales */
+    background-color: #f9f9f9; /* Color de fondo opcional */
+  }
+  
+  .field {
+    margin-bottom: 15px; /* Espaciado entre campos */
+  }
+  
+  .actions {
+    text-align: center; /* Centra el botón de envío */
+  }
