@@ -1,6 +1,6 @@
 class PublicationsController < ApplicationController
   before_action :set_publication, only: %i[ show edit update destroy ]
-  
+
 
   # GET /publications or /publications.json
   def index
@@ -11,9 +11,9 @@ class PublicationsController < ApplicationController
   def show
     @publication = Publication.find(params[:id])
     @comment = Comment.new
-    @comments = @publication.comments
+    @comments = @publication.comments.order(id: :des)
   end
-  
+
 
   # GET /publications/new
   def new
