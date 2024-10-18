@@ -9,12 +9,13 @@
       </ul>
     </div>
   <% end %>
-  <%= f.hidden_field :publication_id, value: @publication.id %>
-  <div class='field'>
-    <%= f.label :content, "Contenido" %>
-    <%= f.text_field :content %>
-    <div class='actions'>
-      <%= f.submit %>
-    </div>
+ <%= f.hidden_field :publication_id, value: @publication.id %>
+<div class='field'>
+  <%= f.label :content, "Contenido" %>
+  <%= f.text_field :content %>
+  <div class='actions'>
+    <%= f.submit "Enviar", class: "btn btn-primary" %> <!-- Cambiado a un botón de Bootstrap -->
   </div>
+</div>
+
 <% end %>
